@@ -4,11 +4,12 @@ import baseball.randomNumber.RandomNumber;
 
 import java.util.Arrays;
 import java.util.Scanner;
+import java.util.Set;
 
 public class Main {
     public static void main(String[] args) {
         RandomNumber random = new RandomNumber();
-        int [] computerNumber = random.getArrayNumber();
+        Set<Integer> test = random.getArrayNumber();
         while(true) {
             System.out.println("숫자를 입력해주세요: ");
             Scanner sc = new Scanner(System.in);
