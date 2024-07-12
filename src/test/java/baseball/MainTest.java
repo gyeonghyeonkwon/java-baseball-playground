@@ -24,12 +24,12 @@ class MainTest {
     @Test
     @DisplayName("숫자 문자열로 바꾸기 ")
     void test2 () {
-        String str = "";
+        StringBuilder sb = new StringBuilder();
         int number = 0;
         for (int i = 0; i < 3; i++) {
-             str += String.valueOf((int) (Math.random() * 9 ) + 1);
-             number = Integer.parseInt(str);
+              sb.append((int) (Math.random() * 9 ) + 1);
+             number = Integer.parseInt(sb.toString());
         }
-        System.out.println(number);
+        System.out.println("결과: " + number);
     }
 }
