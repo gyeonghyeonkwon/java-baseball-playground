@@ -13,8 +13,7 @@ public class RandomNumber {
        }
        return set;
     }
-
-    public Set<Integer> getArrayNumber () {
-        return number();
+    public Integer [] getArrayNumber () {
+        return number().toArray(new Integer[0]); //set 을 배열로 변환
     }
 }
