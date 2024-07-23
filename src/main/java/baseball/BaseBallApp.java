@@ -18,6 +18,7 @@ public class BaseBallApp {
             int inputNumber = sc.nextInt();
             int[] arrayInputNumber = arrayInput(inputNumber);
             System.out.println(Arrays.toString(array));
+
             for (int i = 0; i < arrayInputNumber.length; i++) {
                 int index = 0;
                 if (array[i] == arrayInputNumber[index] && i == index){
