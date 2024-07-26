@@ -1,6 +1,7 @@
 package baseball.baseball;
 
 import baseball.BaseBallApp;
+import baseball.inputview.InputView;
 import baseball.randomNumber.RandomNumber;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -73,7 +74,15 @@ class BaseballTest {
         }
         assertThat(1).isEqualTo(strike);
         assertThat(1).isEqualTo(ball);
-        System.out.println("strike = " + strike);
-        System.out.println("ball = " + ball);
+    }
+    @Test
+    void classT1() {
+        int strike = 0;
+        int ball = 0;
+
+        Baseball baseball = new Baseball();
+        InputView inputView = new InputView();
+        RandomNumber randomNumber = new RandomNumber();
+
     }
 }
