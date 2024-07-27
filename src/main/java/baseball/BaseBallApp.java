@@ -13,18 +13,17 @@ public class BaseBallApp {
         Baseball baseball = new Baseball();
 
         while (true) {
-            int inputValue = inputView.getInputValue();
             int[] test = inputView.getArrayInputValue();
 
-            if (test[0] == 1) {
+            if (test.length == 1 && test[0] == 1) {
                 System.out.println("게임을 다시 시작합니다.");
                 continue;
             }
-
-            if (test[0]== 2) {
+            if (test.length == 1 && test[0] == 2) {
                 System.out.println("프로그램을 종료합니다.");
                 return;
             }
+
         }
     }
 }
