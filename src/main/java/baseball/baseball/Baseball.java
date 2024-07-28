@@ -3,31 +3,53 @@ package baseball.baseball;
 import baseball.inputview.InputView;
 import baseball.randomNumber.RandomNumber;
 
-public class Baseball {
+import java.util.Scanner;
+
+public class Baseball extends InputView{
     private int strike;
     private int ball;
     private String foul;
 
-    public int getStrike () {
+    public int getStrike() {
         return strike;
     }
-    public int getBall () {
-        return  ball;
+    public int getBall() {
+        return ball;
     }
 
-    private void baseballResult (InputView input , RandomNumber random) {
-        int[] inputArray = input.getArrayInputValue();
-        Integer[] randomArray = random.getArrayNumber();
+    public String getFoul() {
+        return foul;
+    }
 
-        for (int i = 0; i < inputArray.length; i++) {
-            for (int j = 0; j < randomArray.length; j++) {
-                if (randomArray[i] == inputArray[j] && i == j) {
+    public void baseballResult (int[] inputArrayValue , Integer[] randomArrayValue) {
+        strike = 0;
+        ball = 0;
+        foul = "";
+        for (int i = 0; i < inputArrayValue.length; i++) {
+            for (int j = 0; j < randomArrayValue.length; j++) {
+                if (inputArrayValue[i] == randomArrayValue[j] && i == j) {
                     strike ++;
                 }
-                if (randomArray[i] == inputArray[j] && i != j){
-                    ball++;
+                if (inputArrayValue[i] == randomArrayValue[j] && i != j){
+                    ball ++;
                 }
             }
         }
+
+        if (strike == 0 && ball == 0) {
+            foul = "낫싱";
+            System.out.println(foul);
+        }
+        if (strike > 0) {
+            System.out.println(strike + "스트라이크 ");
+        }
+        if (ball > 0) {
+            System.out.println(ball + "볼");
+        }
+        if (strike == 3) {
+            System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
+            System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
+        }
     }
+
 }

@@ -13,16 +13,21 @@ public class BaseBallApp {
         Baseball baseball = new Baseball();
 
         while (true) {
-            int[] test = inputView.getArrayInputValue();
+            int[] arrayInputValue =  inputView.getArrayInputValue();
+            Integer[] randomValue = randomNumber.getArrayNumber();
 
-            if (test.length == 1 && test[0] == 1) {
+            System.out.println("컴퓨터 랜덤 숫자: " + Arrays.toString(randomValue));
+
+            if (arrayInputValue.length == 1 && arrayInputValue[0] == 1) {
                 System.out.println("게임을 다시 시작합니다.");
                 continue;
             }
-            if (test.length == 1 && test[0] == 2) {
+            if (arrayInputValue.length == 1 && arrayInputValue[0] == 2) {
                 System.out.println("프로그램을 종료합니다.");
                 return;
             }
+
+            baseball.baseballResult(arrayInputValue , randomValue);
 
         }
     }
