@@ -21,7 +21,7 @@ public class Baseball extends InputView{
         return foul;
     }
 
-    public void baseballResult (int[] inputArrayValue , Integer[] randomArrayValue) {
+    public int baseballResult (int[] inputArrayValue , Integer[] randomArrayValue) {
         strike = 0;
         ball = 0;
         foul = "";
@@ -36,20 +36,23 @@ public class Baseball extends InputView{
             }
         }
 
-        if (strike == 0 && ball == 0) {
-            foul = "낫싱";
-            System.out.println(foul);
-        }
         if (strike > 0) {
             System.out.println(strike + "스트라이크 ");
-        }
-        if (ball > 0) {
-            System.out.println(ball + "볼");
         }
         if (strike == 3) {
             System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
             System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
+            Scanner sc = new Scanner(System.in);
+            int num = sc.nextInt();
+            return num;
         }
+        if (ball > 0) {
+            System.out.println(ball + "볼");
+        }
+        if (strike == 0 && ball == 0) {
+            foul = "낫싱";
+            System.out.println(foul);
+        }
+        return 0;
     }
-
 }

@@ -14,12 +14,12 @@ public class BaseBallApp {
 
         while (true) {
             int[] arrayInputValue =  inputView.getArrayInputValue();
-            Integer[] randomValue = randomNumber.getArrayNumber();
+            Integer[] randomValue = {1 , 2 , 3};
 
             System.out.println("컴퓨터 랜덤 숫자: " + Arrays.toString(randomValue));
 
             if (arrayInputValue.length == 1 && arrayInputValue[0] == 1) {
-                System.out.println("게임을 다시 시작합니다.");
+                System.out.println("게임을 새로 시작합니다.");
                 continue;
             }
             if (arrayInputValue.length == 1 && arrayInputValue[0] == 2) {
@@ -27,8 +27,17 @@ public class BaseBallApp {
                 return;
             }
 
-            baseball.baseballResult(arrayInputValue , randomValue);
-
+            int num = baseball.baseballResult(arrayInputValue , randomValue);
+            if (baseball.getStrike() == 3){
+                if (num == 1) {
+                    System.out.println("게임 새로시작 ");
+                    continue;
+                }
+                if (num == 2) {
+                    System.out.println("게임 종료");
+                    return;
+                }
+            }
         }
     }
 }
