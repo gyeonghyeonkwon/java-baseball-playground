@@ -11,6 +11,9 @@ public class InputView {
     public InputView() {
         this.sc = new Scanner(System.in);
     }
+    protected int getScanner () {
+        return sc.nextInt();
+    }
 
     public int[] getArrayInputValue() {
         System.out.print("숫자를 입력해주세요: ");
@@ -21,9 +24,6 @@ public class InputView {
          *  숫자가 1개 인 경우  숫자가 1 이나 2 면 반환
          */
         while (inputArrayValue.length != 3) {
-            if (inputArrayValue.length == 1 && inputArrayValue[0] == 1 || inputArrayValue[0] == 2) {
-                return inputArrayValue;
-            }
             System.out.print("세자리 정수를 입력해주세요: ");
             this.inputValue = sc.nextInt();
             inputArrayValue = arrayInputValue(); //  arrayInputValue() 결과 값을 inputArrayValue 담아 반복문 실행 여부 판단
@@ -34,7 +34,7 @@ public class InputView {
     private int[] arrayInputValue() {
         String[] arrayStr = intConvertArray();
         int[] arrayValue = new int[arrayStr.length];
-        if (arrayValue.length == 3 || arrayValue.length == 1) {
+        if (arrayValue.length == 3) {
             for (int i = 0; i < arrayValue.length; i++) {
                 arrayValue[i] = Integer.parseInt(arrayStr[i]);
             }
