@@ -16,15 +16,16 @@ public class BaseBallApp {
             Integer[] randomValue = randomNumber.getArrayNumber();
             System.out.println("컴퓨터 랜덤 숫자: " + Arrays.toString(randomValue));
 
-            int num = baseball.baseballResult(arrayInputValue , randomValue);
+            int sc = baseball.baseballResult(arrayInputValue , randomValue);
 
             if (baseball.getStrike() == 3){
-                if (num == 1) {
+                if (sc == 1) {
                     System.out.println("게임을 새로 시작 합니다. ");
+                    randomNumber = new RandomNumber();
                     continue;
                 }
-                if (num == 2) {
-                    System.out.println("게임 종료을 종료 합니다.");
+                if (sc == 2) {
+                    System.out.println("게임을 종료 합니다.");
                     return;
                 }
             }

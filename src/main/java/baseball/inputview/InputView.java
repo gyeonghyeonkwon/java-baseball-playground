@@ -17,7 +17,7 @@ public class InputView {
 
     public int[] getArrayInputValue() {
         System.out.print("숫자를 입력해주세요: ");
-        this.inputValue = sc.nextInt();
+        this.inputValue = getScanner();
         int[] inputArrayValue = arrayInputValue();
         /**
          *  숫자가 3개가 될 때 까지 반복 순회
@@ -25,7 +25,7 @@ public class InputView {
          */
         while (inputArrayValue.length != 3) {
             System.out.print("세자리 정수를 입력해주세요: ");
-            this.inputValue = sc.nextInt();
+            this.inputValue = getScanner();
             inputArrayValue = arrayInputValue(); //  arrayInputValue() 결과 값을 inputArrayValue 담아 반복문 실행 여부 판단
         }
         return inputArrayValue;
