@@ -18,25 +18,22 @@ public class InputView{
     }
 
     public int[] getArrayInputValue() {
-        System.out.print("숫자를 입력해주세요: ");
-        this.inputValue = getScanner();
-        int[] inputArrayValue = arrayInputValue();
-        int count = duplicateValueCount(inputArrayValue);
-        /**
-         *  숫자가 3개가 될 때 까지 반복 순회
-         *  숫자가 1개 인 경우  숫자가 1 이나 2 면 반환
-         */
-        while (inputArrayValue.length != 3 || count > 0) {
-            System.out.println("입력하신 숫자가 중복된 숫자가 존재하거나 세자리 정수를 입력해주세요.");
-            System.out.print("숫자를 다시 입력해주세요: ");
-            this.inputValue = getScanner();
-            inputArrayValue = arrayInputValue();//  arrayInputValue() 결과 값을 inputArrayValue 담아 반복문 실행 여부 판단
-            count = duplicateValueCount(inputArrayValue);
-        }
+        int[] inputArrayValue;
+        int count;
+        do {
+             inputArrayValue = arrayInputValue();
+             count = duplicateValueCount(inputArrayValue);
+             if (inputArrayValue.length != 3 || count > 0) {
+                 System.out.println("입력하신 숫자가 중복되었거나 세자리 정수가 아닙니다. 다시 입력해주세요.");
+             }
+        } while (inputArrayValue.length != 3 || count > 0);
+
         return inputArrayValue;
     }
 
     private int[] arrayInputValue() {
+        System.out.print("숫자를 입력해주세요: ");
+        this.inputValue = getScanner();
         String[] arrayStr = intConvertArray();
         int[] arrayValue = new int[arrayStr.length];
 
@@ -48,18 +45,20 @@ public class InputView{
         }
         return arrayValue; //세자리가 아닌 경우에 배열의 각인덱스 값이 0
     }
+
     //입력값으로 받은 정수를 세자리수로 자른다.
     private String[] intConvertArray() {
         return String.valueOf(this.inputValue).split("");
     }
-    //입력한 정수가 중복된 정수의 갯수를 count 한다.
+
+    //입력한 숫자 중에 중복된 숫자가 존재하면 count
     private int duplicateValueCount (int[] inputArrayValue) {
         int count = 0;
         for (int i = 0; i < inputArrayValue.length; i++) {
             for (int j = i + 1; j < inputArrayValue.length; j++) {
                 if (inputArrayValue[i] == inputArrayValue[j]) {
                     count ++;
-                    break;
+                    return count;
                 }
             }
         }
