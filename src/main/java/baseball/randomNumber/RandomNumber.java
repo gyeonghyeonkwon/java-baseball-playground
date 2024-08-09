@@ -21,4 +21,5 @@ public class RandomNumber {
     public Integer[] getArrayNumber() {
         return computerValue().toArray(new Integer[0]); //set 을 배열로 변환
     }
+
 }
