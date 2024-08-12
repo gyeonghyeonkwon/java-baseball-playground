@@ -3,31 +3,42 @@ package baseball.inputview;
 import baseball.randomNumber.RandomNumber;
 
 import javax.xml.transform.Source;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class InputView{
+public class InputView {
 
     private Scanner sc;
-    private int inputValue ;
+    private int inputValue;
 
     public InputView() {
         this.sc = new Scanner(System.in);
     }
-    protected int getScanner () {
-        return sc.nextInt();
+
+    protected int getScanner() {
+        int value;
+        while (true) {
+            try {
+                value = sc.nextInt();
+                break;
+            }catch (InputMismatchException e) {
+                System.out.print("잘못 입력하셨습니다. 숫자를 다시 입력해 주세요: ");
+                sc.nextLine();
+            }
+        }
+        return value;
     }
 
     public int[] getArrayInputValue() {
         int[] inputArrayValue;
         int count;
         do {
-             inputArrayValue = arrayInputValue();
-             count = duplicateValueCount(inputArrayValue);
-             if (inputArrayValue.length != 3 || count > 0) {
-                 System.out.println("입력하신 숫자가 중복되었거나 세자리 정수가 아닙니다. 다시 입력해주세요.");
-             }
+            inputArrayValue = arrayInputValue(); //입력한 숫자 배열 반환
+            count = duplicateValueCount(inputArrayValue);
+            if (inputArrayValue.length != 3 || count > 0) {
+                System.out.println("입력하신 숫자가 중복되었거나 세자리 정수가 아닙니다. 다시 입력해주세요.");
+            }
         } while (inputArrayValue.length != 3 || count > 0);
-
         return inputArrayValue;
     }
 
@@ -52,12 +63,12 @@ public class InputView{
     }
 
     //입력한 숫자 중에 중복된 숫자가 존재하면 count
-    private int duplicateValueCount (int[] inputArrayValue) {
+    private int duplicateValueCount(int[] inputArrayValue) {
         int count = 0;
         for (int i = 0; i < inputArrayValue.length; i++) {
             for (int j = i + 1; j < inputArrayValue.length; j++) {
                 if (inputArrayValue[i] == inputArrayValue[j]) {
-                    count ++;
+                    count++;
                     return count;
                 }
             }

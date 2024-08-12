@@ -9,7 +9,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-class InputViewTest {
+class InputViewTest{
     InputView inputView = new InputView();
 
     @Test
@@ -39,10 +39,8 @@ class InputViewTest {
         }
         System.out.println(Arrays.toString(arrayNumber));
     }
-
     @Test
     void t2() {
-        Set<Integer> set = new HashSet<>();
-
+      inputView.getArrayInputValue();
     }
 }
