@@ -5,7 +5,7 @@ import java.util.Set;
 
 public class RandomNumber {
 
-    private Set<Integer> set;
+    private final Set<Integer> set;
 
     public RandomNumber() {
         this.set = new HashSet<>();

@@ -20,7 +20,7 @@ public class Baseball extends InputView{
         return foul;
     }
 
-    public int baseballResult (int[] inputArrayValue , Integer[] randomArrayValue) {
+    public int baseballResult (final int[] inputArrayValue , final Integer[] randomArrayValue) {
         int sc = 0;
         strike = 0;
         ball = 0;

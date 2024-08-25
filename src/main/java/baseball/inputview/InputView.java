@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class InputView {
 
-    private Scanner sc;
+    private final Scanner sc;
     private int inputValue;
 
     public InputView() {
@@ -21,7 +21,7 @@ public class InputView {
             try {
                 value = sc.nextInt();
                 break;
-            }catch (InputMismatchException e) {
+            }catch (InputMismatchException e) { // 정수가 아닌 문자열이 입력 되었을때
                 System.out.print("잘못 입력하셨습니다. 숫자를 다시 입력해 주세요: ");
                 sc.nextLine();
             }
@@ -34,7 +34,7 @@ public class InputView {
         int count;
         do {
             inputArrayValue = arrayInputValue(); //입력한 숫자 배열 반환
-            count = duplicateValueCount(inputArrayValue);
+            count = duplicateValueCount(inputArrayValue); // 중복 입력 값
             if (inputArrayValue.length != 3 || count > 0) {
                 System.out.println("입력하신 숫자가 중복되었거나 세자리 정수가 아닙니다. 다시 입력해주세요.");
             }
@@ -54,7 +54,7 @@ public class InputView {
             }
             return arrayValue;
         }
-        return arrayValue; //세자리가 아닌 경우에 배열의 각인덱스 값이 0
+        return arrayValue; //세자리가 아닌 경우에 배열의 인덱스 값이 0
     }
 
     //입력값으로 받은 정수를 세자리수로 자른다.
