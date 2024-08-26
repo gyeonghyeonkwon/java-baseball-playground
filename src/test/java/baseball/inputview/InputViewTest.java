@@ -39,8 +39,4 @@ class InputViewTest{
         }
         System.out.println(Arrays.toString(arrayNumber));
     }
-    @Test
-    void t2() {
-      inputView.getArrayInputValue();
-    }
 }

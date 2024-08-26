@@ -48,6 +48,7 @@ public class Baseball extends InputView{
         if (ball > 0) {
             System.out.println(ball + "볼");
         }
+
         if (strike == 0 && ball == 0) {
             foul = "낫싱";
             System.out.println(foul);

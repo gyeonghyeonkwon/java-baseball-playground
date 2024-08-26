@@ -43,7 +43,7 @@ public class InputView {
     }
 
     private int[] arrayInputValue() {
-        System.out.print("숫자를 입력해주세요: ");
+        System.out.print("숫자를 입력해주세요: " );
         this.inputValue = getScanner();
         String[] arrayStr = intConvertArray();
         int[] arrayValue = new int[arrayStr.length];
