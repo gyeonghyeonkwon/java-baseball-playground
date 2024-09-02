@@ -21,7 +21,7 @@ public class ComputerTest{
 
     @Test
     @DisplayName("세자리의 정수 생성 (중복 값 제거) ")
-    void t3() {
+    void t2() {
             List<Integer> computerNumber = computer.uniqueThreeDigit();
             assertThat(computerNumber.size()).isEqualTo(3);
             System.out.println(computerNumber);
