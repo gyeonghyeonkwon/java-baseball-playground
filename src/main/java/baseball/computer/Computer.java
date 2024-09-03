@@ -1,7 +1,6 @@
-package baseball;
+package baseball.computer;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class Computer {
     private final Random random;

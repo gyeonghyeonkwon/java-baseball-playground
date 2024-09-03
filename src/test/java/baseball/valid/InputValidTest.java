@@ -1,10 +1,7 @@
-package baseball;
+package baseball.valid;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
-import java.util.Arrays;
-import java.util.List;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
@@ -31,6 +28,22 @@ public class InputValidTest {
         boolean bool1 = InputValid.isDuplicateValue(input1); // 세자리의 정수면 false 반환
         boolean bool2 = InputValid.isDuplicateValue(input2);
         boolean bool3 = InputValid.isDuplicateValue(input3);
+
+        assertThat(bool1).isTrue();
+        assertThat(bool2).isTrue();
+        assertThat(bool3).isFalse();
+    }
+
+    @Test
+    @DisplayName("숫자가 아닌 값 , 0 포함 테스트")
+    void t3() {
+        String input1 = "abc";
+        String input2 = "012";
+        String input3 = "123";
+
+        boolean bool1 = InputValid.isContainsNumber(input1); // 세자리의 정수면 false 반환
+        boolean bool2 = InputValid.isContainsNumber(input2);
+        boolean bool3 = InputValid.isContainsNumber(input3);
 
         assertThat(bool1).isTrue();
         assertThat(bool2).isTrue();
